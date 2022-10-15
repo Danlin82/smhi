@@ -1,4 +1,4 @@
-from operator import contains
+#from operator import contains
 import requests
 import json
 import csv
@@ -14,10 +14,6 @@ data = response.text
 
 
 x = json.loads(data)
-
-
-#f = open('test2.txt', 'a')
-#print(x["timeSeries"][0]["parameters"][0].values())
 
 smhiData = []
 
@@ -40,7 +36,7 @@ for item in x["timeSeries"]:
 
 
 
-with open('test2.csv', 'r+', newline='') as csvfile:
+with open('test.csv', 'w+', newline='') as csvfile:
    fieldnames = smhiData[0].keys()
    writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
 
@@ -48,5 +44,3 @@ with open('test2.csv', 'r+', newline='') as csvfile:
    for dict in smhiData:
        writer.writerow(dict)
         
-# if '20' in smhiData[0]["validTime"] and smhiData[0]["name"] == 'Wsymb2':
-#     print(smhiData[0]["name"])
