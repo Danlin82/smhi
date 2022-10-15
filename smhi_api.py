@@ -42,5 +42,4 @@ with open('test.csv', 'w+', newline='') as csvfile:
 
    writer.writeheader()
    for dict in smhiData:
-       writer.writerow(dict)
-        
+       writer.writerow(dict)  
